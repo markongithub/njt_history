@@ -1,0 +1,13 @@
+#!/bin/sh
+
+TRAIN=$1
+LOCAL_MONTH=$(TZ=America/New_York date +%Y%m)
+LOCAL_DAY=$(TZ=America/New_York date +%Y%m%d)
+OUTDIR=$HOME/njt/data/$LOCAL_MONTH/ # fix this for your own needs
+mkdir -p $OUTDIR
+for I in $(seq 1 150); do # once every minute for 2h30m
+  TIMESTAMP=$(date +%s)
+  OUTFILE=$OUTDIR/$TRAIN-$LOCAL_DAY-$TIMESTAMP.html
+  wget -O $OUTFILE http://dv.njtransit.com/mobile/train_stops.aspx?sid=NY\&train=$TRAIN
+  sleep 60
+done
