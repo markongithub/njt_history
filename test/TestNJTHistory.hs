@@ -13,7 +13,7 @@ testDiff = secondsToDiffTime (17 * 3600 + 41 * 60)
 expectedDiff = secondsToDiffTime (17 * 3600 + 52 * 60)
 testUTC = UTCTime testDay testDiff
 sampleTime = posixSecondsToUTCTime 1445708047
-emptyStatusPage = StatusPage "fuck" [("fuck", Departed Nothing Nothing Nothing)]
+emptyStatusPage = StatusPage "wut" [("wut", Departed Nothing Nothing Nothing)]
 sampleIO = readFile "test/testdata/6924-1445708047.html"
 
 testGuess = testCase "guess time" $ do
